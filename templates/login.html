@@ -1,0 +1,29 @@
+<!doctype html>
+
+<html>
+
+<head>
+
+<title>Login</title>
+
+</head>
+
+<div class="content-login">
+
+<body>
+
+<h2>Login</h2>
+{% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+<form action="{{ url_for('login') }}" method=post>
+  <dl>
+    <dt>Username: <input type=text name=username placeholder="Enter username">
+	<br><br>
+    <dt>Password: <input type=password name=password placeholder="Enter password">
+	<br><br>
+    <dd><input type=submit value=Login>
+  </dl>
+</form>
+
+</body>
+
+</html>

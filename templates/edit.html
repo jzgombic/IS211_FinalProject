@@ -1,0 +1,42 @@
+<html>
+
+<head>
+
+<title>Edit Post</title>
+
+</head>
+
+<body>
+
+  <form action="/dashboard">
+ <input type="submit" value="Return to Dashboard">
+ </form>
+
+
+ <form action="/logout">
+ <input type="submit" value="Log Off">
+ </form>
+
+ {% for message in get_flashed_messages() %}
+ <div class=flash>{{ message }}</div>
+ {% endfor %}
+
+ <div class="content">
+
+ <h1>Edit Post</h1>
+
+
+<form action="/post/edit/{{ postID }}" id="post" method="post">
+  {% for post in change_post %}
+  <p>Date: <input type="text" id="date" name="date" value="{{ post.published }}"></p>
+  <p>Title: <input type="text" id="title" name="title" value="{{ post.title }}"></p>
+  <p>Author: <input type="text" id="author" name="author" value="{{ post.author }}"></p>
+  <p>Content: <textarea rows="5" cols="40" name="content" form="post"> {{ post.comments }}</textarea></p>
+  {% endfor %}
+ <input type="submit" value="Update">
+ </form>
+
+ </div>
+
+</body>
+</html>

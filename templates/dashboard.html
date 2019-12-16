@@ -1,0 +1,50 @@
+<html>
+
+<head>
+
+<title>Dashboard</title>
+
+</head>
+
+<body>
+
+ {% for message in get_flashed_messages() %}
+ <div class=flash>{{ message }}</div>
+ {% endfor %}
+
+ <form action="/logout">
+ <input type="submit" value="Log Off">
+ </form>
+
+ <div class="content">
+
+ <h2>Let's Vent</h2>
+ <form action="/post/add">
+ <input type="submit" value="Add Post">
+ </form>
+
+ <table name="posts" border = "1" centered>
+  <tr>
+  <th colspan="7" style="text-align: center">Posts</th>
+  </tr>
+  <tr>
+  <th>ID</th><th>Date</th><th>Title</th><th>Author</th><th>Post Contents</th><th>Edit</th><th>Delete</th>
+  </tr>
+  {% for posts in posts %}
+  <tr align="center">
+  <td>{{ posts.postID }}</td><td>{{ posts.published }}</td><td>{{ posts.title }}</td><td>{{ posts.author }}</td>
+  <td><textarea rows="5" cols="40" name="post_text">{{ posts.comments }}</textarea></td>
+  <td><a href="/post/edit/{{ posts.post_id }}" <input type="submit" value="Edit Post" class="button"> Edit Post</a></td>
+  <td><a href="/post/delete/{{ posts.post_id }}" <input type="submit" value="Edit Post" class="button"> Delete Post</a></td>
+  </tr>
+  {% else %}
+  <h2>No Blog entries</h2>
+  {% endfor %}
+ </table>
+ 
+ </div>
+	
+</body>
+
+</html>
+

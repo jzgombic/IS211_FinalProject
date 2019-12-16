@@ -1,0 +1,46 @@
+<html>
+
+<head>
+
+<div class="content">
+
+<title>My Blog</title>
+
+</div>
+
+</head>
+
+<body>
+
+
+ <form action="/login">
+ <input type="submit" value="Login">
+ </form>
+
+ <div class="content">
+
+ <h2>Posts</h2>
+
+ <table name="posts" border = "1" centered>
+  <tr>
+  <th colspan="5" style="text-align: center">Posts</th>
+  </tr>
+  <tr>
+  <th>Date</th><th>Title</th><th>Author</th><th>Comments</th>
+  </tr>
+  {% for posts in posts %}
+  <tr align="center">
+  <td>{{ posts.published }}</td><td>{{ posts.title }}</td><td>{{ posts.author }}</td>
+  <td><textarea rows="10" cols="100" name="post_text">{{ posts.comments }}</textarea></td>
+  </tr>
+  {% else %}
+  <h2>No Blog Entries</h2>
+  {% endfor %}
+ </table>
+  
+ </div>
+
+</body>
+
+</html>
+
