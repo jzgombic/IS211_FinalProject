@@ -1,0 +1,38 @@
+<html>
+
+<head>
+
+<title>Add Post</title>
+
+</head>
+
+<body>
+
+ <form action="/dashboard">
+ <input type="submit" value="Return to Dashboard">
+ </form>
+
+ <form action="/logout">
+ <input type="submit" value="Log Off">
+ </form>
+
+ {% for message in get_flashed_messages() %}
+ <div class=flash>{{ message }}</div>
+ {% endfor %}
+
+ <div class="content">
+
+ <h1>Add Post</h1>
+ 
+ <form action="/post/add" method="post">
+  <p>Enter Date: <input type="text" name="published"></p>
+  <p>Enter Title: <input type="text" name="title"></p>
+  <p>Enter Author: <input type='text' name="author"></P>
+  <p>Enter Post Text: <textarea rows="7" cols="50" name="postText"></textarea></p>
+  <input type="submit" value="Enter">
+ </form>
+
+ </div>
+
+</body>
+</html>
